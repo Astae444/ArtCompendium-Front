@@ -26,7 +26,6 @@
           @click="filterResults(tag)"
           outlined
           flat
-          rounded
         >
           {{ tag }}
         </v-btn>
@@ -42,14 +41,11 @@
             v-for="(result, index) in searchResults"
             :key="index"
           >
-            <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title>{{ result.title }}</v-list-item-title>
-                <v-list-item-subtitle>{{
-                  result.description
-                }}</v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
+            <ResultCard
+              :image="result.image"
+              :title="result.title"
+              :date="result.date"
+            />
           </v-list-item-group>
         </v-list>
         <p v-if="searchResults.length === 0" class="text-center">
@@ -63,15 +59,16 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import ResultCard from "@/components/ResultCard.vue";
 
 export default defineComponent({
   name: "SearchResult",
+  components: { ResultCard },
   setup() {
     const route = useRoute();
     const router = useRouter();
-
     const searchQuery = ref("");
-    const searchResults = ref<any[]>([]); // Remplacez `any` par le type approprié
+    const searchResults = ref<any[]>([]); // Remplacer `any` par le type approprié
     const searchTags = ref([
       "Impressionisme",
       "Renaissance",
@@ -85,14 +82,20 @@ export default defineComponent({
       {
         title: "Article 1",
         description: "Description de l'article 1 sur l'art.",
+        date: "2024-10-10",
+        image: "https://placehold.co/100x100",
       },
       {
         title: "Article 2",
         description: "Description de l'article 2 sur la culture.",
+        date: "2024-10-11",
+        image: "https://placehold.co/100x100",
       },
       {
         title: "Article 3",
         description: "Description de l'article 3 sur l'histoire.",
+        date: "2024-10-12",
+        image: "https://placehold.co/100x100",
       },
     ];
 
@@ -114,10 +117,7 @@ export default defineComponent({
     // Fonction pour effectuer une nouvelle recherche
     const performSearch = () => {
       if (searchQuery.value) {
-        // Redirigez vers la même page avec le nouveau query string
         router.push({ name: "SearchResult", query: { q: searchQuery.value } });
-
-        // Filtrer les résultats selon la recherche
         searchResults.value = mockSearchResults.filter((result) =>
           result.title.toLowerCase().includes(searchQuery.value.toLowerCase())
         );

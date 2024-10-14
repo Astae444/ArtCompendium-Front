@@ -2,7 +2,10 @@
   <v-container>
     <!-- Section Recherche -->
     <v-row justify="center" class="mt-12 position-relative">
-      <v-img src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" height="500" />
+      <v-img
+        src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
+        height="500"
+      />
       <v-row
         class="overlay-content"
         justify="center"
