@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router/auto'
 import Home from '@/pages/Home.vue'
 import SearchResult from '@/pages/SearchResult.vue'
+import Artist from '@/pages/Artist.vue'
+import ArtDetail from '@/pages/ArtDetail.vue'
+import MovementDetail from '@/pages/MovementDetail.vue'
 import About from '@/pages/About.vue'
 import Terms from '@/pages/Terms.vue'
 import Privacy from '@/pages/Privacy.vue'
@@ -11,27 +14,42 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: Home
     },
     {
-      path: "/search",
-      name: "searchresult",
-      component: SearchResult
+      path: '/search',
+      name: 'SearchResult',
+      component: SearchResult,
+    },
+    {
+      path: "/artist",
+      name: "Artist",
+      component: Artist
+    },
+    {
+      path: "/artdetail",
+      name: "ArtDetail",
+      component: ArtDetail
+    },
+    {
+      path: "/movementdetail",
+      name: "MovementDetail",
+      component: MovementDetail
     },
     {
       path: "/about",
-      name: "about",
+      name: "About",
       component: About
     },
     {
       path: "/terms",
-      name: "terms",
+      name: "Terms",
       component: Terms
     },
     {
       path: "/privacy",
-      name: "privacy",
+      name: "Privacy",
       component: Privacy
     },
   ]

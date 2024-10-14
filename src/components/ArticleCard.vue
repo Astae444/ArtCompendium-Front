@@ -4,7 +4,7 @@
       <v-card-title>{{ article.title }}</v-card-title>
       <v-card-text>{{ article.description }}</v-card-text>
       <v-card-actions>
-        <v-btn text color="primary">Lire plus</v-btn>
+        <v-btn color="primary">Lire plus</v-btn>
       </v-card-actions>
     </v-card>
   </template>

@@ -1,12 +1,19 @@
 <template>
-<v-container>
+  <v-container>
     <!-- Section Recherche -->
     <v-row justify="center" class="mt-12 position-relative">
-      <v-img src="https://placehold.co/1000x500" height="500" class="rounded"/>
-            <v-row class="overlay-content" justify="center" align="center" direction="column">
+      <v-img src="https://placehold.co/1000x500" height="500" class="rounded" />
+      <v-row
+        class="overlay-content"
+        justify="center"
+        align="center"
+        direction="column"
+      >
         <h1 class="image-title">Découvrez le monde de l'art</h1>
         <p class="image-description">
-            Explorez plus de 120 000 œuvres d'art provenant des plus grands musées et institutions culturelles du monde. Vous pouvez également contribuer au wiki et nous aider à grandir !
+          Explorez plus de 120 000 œuvres d'art provenant des plus grands musées
+          et institutions culturelles du monde. Vous pouvez également contribuer
+          au wiki et nous aider à grandir !
         </p>
         <v-text-field
           v-model="searchQuery"
@@ -15,6 +22,7 @@
           clearable
           prepend-inner-icon="mdi-magnify"
           class="search-field"
+          @keyup.enter="performSearch"
         />
       </v-row>
     </v-row>
@@ -24,7 +32,12 @@
       <v-col cols="12">
         <h2 class="text-center">Articles à la une</h2>
       </v-col>
-      <v-col v-for="(article, index) in featuredArticles" :key="index" cols="12" md="4">
+      <v-col
+        v-for="(article, index) in featuredArticles"
+        :key="index"
+        cols="12"
+        md="4"
+      >
         <ArticleCard :article="article" />
       </v-col>
     </v-row>
@@ -39,39 +52,41 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import ArticleCard from '@/components/ArticleCard.vue';
+import { defineComponent, ref } from "vue";
+import { useRouter } from "vue-router";
+import ArticleCard from "@/components/ArticleCard.vue";
 
 export default defineComponent({
-  name: 'HomePage',
+  name: "HomePage",
   components: {
-    ArticleCard
+    ArticleCard,
   },
-  data() {
+  setup() {
+    const router = useRouter();
+    const searchQuery = ref("");
+
+    const performSearch = () => {
+      if (searchQuery.value) {
+        router.push({
+          name: "SearchResult",
+          query: { q: searchQuery.value },
+        });
+      }
+    };
+
     return {
-      featuredArticles: [
-        {
-          title: 'Article 1',
-          description: 'Description de l\'article 1.',
-          image: 'https://placehold.co/400x200',
-        },
-        {
-          title: 'Article 2',
-          description: 'Description de l\'article 2.',
-          image: 'https://placehold.co/400x200',
-        },
-        {
-          title: 'Article 3',
-          description: 'Description de l\'article 3.',
-          image: 'https://placehold.co/400x200',
-        },
-      ],
+      searchQuery,
+      performSearch,
     };
   },
 });
 </script>
 
 <style scoped>
+h1 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
 .position-relative {
   position: relative;
 }

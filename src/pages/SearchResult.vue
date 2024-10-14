@@ -1,19 +1,27 @@
 <template>
-    <v-container>
-      <v-row>
-        <v-col cols="12">
-          <h1>Bienvenue sur notre site</h1>
-          <v-btn color="primary">Cliquez ici</v-btn>
-        </v-col>
-      </v-row>
-    </v-container>
+  <v-container>
+    <h1>Résultats de recherche pour "{{ searchQuery }}"</h1>
+    <p v-if="!searchQuery">Veuillez entrer un terme de recherche.</p>
+  </v-container>
 </template>
-  
+
 <script lang="ts">
+import { defineComponent, onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 
+export default defineComponent({
+  name: "SearchResult",
+  setup() {
+    const route = useRoute();
+    const searchQuery = ref("");
+
+    onMounted(() => {
+      searchQuery.value = (route.query.q as string) || "";
+    });
+
+    return { searchQuery };
+  },
+});
 </script>
-  
-<style scoped>
 
-</style>
-  
+<style scoped></style>
