@@ -2,7 +2,7 @@
   <v-container>
     <!-- Section Recherche -->
     <v-row justify="center" class="mt-12 position-relative">
-      <v-img src="https://placehold.co/1000x500" height="500" class="rounded" />
+      <v-img src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" height="500" />
       <v-row
         class="overlay-content"
         justify="center"
@@ -32,14 +32,6 @@
       <v-col cols="12">
         <h2 class="text-center">Articles à la une</h2>
       </v-col>
-      <v-col
-        v-for="(article, index) in featuredArticles"
-        :key="index"
-        cols="12"
-        md="4"
-      >
-        <ArticleCard :article="article" />
-      </v-col>
     </v-row>
 
     <!-- Section Contributions récentes -->
@@ -54,13 +46,10 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
-import ArticleCard from "@/components/ArticleCard.vue";
 
 export default defineComponent({
   name: "HomePage",
-  components: {
-    ArticleCard,
-  },
+
   setup() {
     const router = useRouter();
     const searchQuery = ref("");

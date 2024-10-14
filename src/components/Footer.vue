@@ -11,16 +11,16 @@
           <v-col cols="12" md="6" class="text-center text-md-end">
             <v-row class="justify-center justify-md-end" no-gutters wrap>
               <v-col cols="auto" class="mb-2">
-                <v-btn flat to="/about">À propos</v-btn>
+                <v-btn to="/about" variant="plain" rounded flat>À propos</v-btn>
               </v-col>
               <v-col cols="auto" class="mb-2">
-                <v-btn flat to="/terms">Conditions générales d'utilisation</v-btn>
+                <v-btn to="/terms" variant="plain" rounded flat>Conditions générales d'utilisation</v-btn>
               </v-col>
               <v-col cols="auto" class="mb-2">
-                <v-btn flat to="/privacy">Confidentialité</v-btn>
+                <v-btn to="/privacy" variant="plain" rounded flat>Confidentialité</v-btn>
               </v-col>
               <v-col cols="auto" class="mb-2">
-                <v-btn flat to="/help">Aide</v-btn>
+                <v-btn to="/help" variant="plain" rounded flat>Aide</v-btn>
               </v-col>
             </v-row>
           </v-col>
