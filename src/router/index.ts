@@ -28,9 +28,10 @@ const router = createRouter({
       component: Artist
     },
     {
-      path: "/artdetail",
-      name: "ArtDetail",
-      component: ArtDetail
+      path: '/art/:slug',
+      name: 'ArtDetail',
+      component: ArtDetail,
+      props: true,
     },
     {
       path: "/movementdetail",
