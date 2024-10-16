@@ -4,7 +4,7 @@
       <v-col cols="auto">
         <v-img :src="image" height="100" width="100"/>
       </v-col>
-      <v-col cols="8">
+      <v-col cols="auto">
         <v-card-title>{{ title }}</v-card-title>
         <v-card-subtitle>{{ artist }}</v-card-subtitle>
         <v-card-subtitle>{{ date }}</v-card-subtitle>

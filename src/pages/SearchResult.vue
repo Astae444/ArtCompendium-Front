@@ -1,6 +1,3 @@
-J'aimerai que le tag "closable" de v-chip n'apparaisse que pour les tags déjà
-sélectionné
-
 <template>
   <v-container>
     <!-- Section Recherche -->
@@ -37,7 +34,7 @@ sélectionné
         <h2 class="text-center mb-4">
           Résultats de recherche pour "{{ searchQuery }}"
         </h2>
-        <v-list class="w-75">
+        <v-list>
           <v-list-item-group
             v-for="(result, index) in searchResults"
             :key="index"
@@ -100,7 +97,7 @@ export default defineComponent({
       },
       {
         title: "Article 3",
-        artist: "Léonard de Vinci", 
+        artist: "Léonard de Vinci",
         description: "Description de l'article 3 sur l'histoire.",
         date: "2024-10-12",
         image: "https://placehold.co/100x100",
