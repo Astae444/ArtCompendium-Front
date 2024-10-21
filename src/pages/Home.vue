@@ -20,7 +20,7 @@
         </p>
         <v-text-field
           v-model="searchQuery"
-          label="Rechercher un article..."
+          label="Rechercher une œuvre, un artiste, un mouvement..."
           variant="outlined"
           clearable
           prepend-inner-icon="mdi-magnify"
@@ -34,6 +34,15 @@
     <v-row class="mt-12">
       <v-col cols="12">
         <h2 class="text-center">Articles à la une</h2>
+      </v-col>
+
+      <v-col
+        v-for="(article, index) in featuredArticles"
+        :key="index"
+        cols="12"
+        md="4"
+      >
+        <ArticleCard :article="article" />
       </v-col>
     </v-row>
 
@@ -49,13 +58,37 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
+import ArticleCard from "@/components/ArticleCard.vue";
 
 export default defineComponent({
   name: "HomePage",
+  components: { ArticleCard },
 
   setup() {
     const router = useRouter();
     const searchQuery = ref("");
+
+    // Articles à la une
+    const featuredArticles = ref([
+      {
+        title: "L'Impressionnisme : Une nouvelle ère artistique",
+        description: "Découvrez comment l'Impressionnisme a changé le monde de l'art.",
+        image: "https://placehold.co/400x200",
+        date: "2024-10-10",
+      },
+      {
+        title: "Les mystères de la Renaissance",
+        description: "Explorez les secrets et les chefs-d'œuvre de la Renaissance.",
+        image: "https://placehold.co/400x200",
+        date: "2024-10-11",
+      },
+      {
+        title: "L'Art Abstrait expliqué aux débutants",
+        description: "Une introduction à l'art abstrait pour les novices.",
+        image: "https://placehold.co/400x200",
+        date: "2024-10-12",
+      },
+    ]);
 
     const performSearch = () => {
       if (searchQuery.value) {
@@ -69,6 +102,7 @@ export default defineComponent({
     return {
       searchQuery,
       performSearch,
+      featuredArticles,
     };
   },
 });
