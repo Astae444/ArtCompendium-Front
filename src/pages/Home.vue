@@ -4,7 +4,7 @@
     <v-row justify="center" class="mt-12 position-relative">
       <v-img
         src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
-        height="500"
+        max-height="500"
       />
       <v-row
         class="overlay-content"
@@ -139,5 +139,18 @@ h1 {
 
 .search-field {
   width: 100%;
+}
+
+@media (max-width: 960px) {
+  .image-description {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .image-title {
+    font-size: 24px;
+  }
+  .image-description {
+    display: none;
+  }
 }
 </style>
