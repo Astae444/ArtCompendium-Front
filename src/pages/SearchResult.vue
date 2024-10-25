@@ -5,7 +5,7 @@
       <v-col cols="12" md="8">
         <v-text-field
           v-model="searchQuery"
-          label="Rechercher un article..."
+          label="Rechercher une œuvre, un artiste, un mouvement..."
           variant="outlined"
           clearable
           prepend-inner-icon="mdi-magnify"
