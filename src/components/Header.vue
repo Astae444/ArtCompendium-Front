@@ -7,10 +7,10 @@
   
       <!-- Menu de navigation -->
       <v-btn to="/" variant="plain" rounded class="ma-2">Accueil</v-btn>
-      <v-btn to="/" variant="plain" rounded class="ma-2">Explorer</v-btn>
+      <v-btn to="/search" variant="plain" rounded class="ma-2">Explorer</v-btn>
       <v-btn to="/" variant="plain" rounded class="ma-2">Aléatoire</v-btn>
   
-      <v-btn icon>
+      <v-btn to="/login" icon>
         <v-icon>mdi-account-circle</v-icon>
       </v-btn>
     </v-app-bar>
