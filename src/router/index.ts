@@ -5,6 +5,7 @@ import Artist from "@/pages/Artist.vue";
 import ArtDetail from "@/pages/ArtDetail.vue";
 import MovementDetail from "@/pages/MovementDetail.vue";
 import Login from "@/pages/Login.vue";
+import Signup from "@/pages/Signup.vue";
 import About from "@/pages/About.vue";
 import Terms from "@/pages/Terms.vue";
 import Privacy from "@/pages/Privacy.vue";
@@ -43,6 +44,11 @@ const router = createRouter({
       path: "/login",
       name: "Login",
       component: Login,
+    },
+    {
+      path: "/signup",
+      name: "Signup",
+      component: Signup,
     },
     {
       path: "/about",

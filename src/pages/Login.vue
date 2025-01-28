@@ -39,7 +39,7 @@
   
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn>
+              <v-btn to="/signup">
                 Créer un compte
               </v-btn>
             </v-card-actions>
