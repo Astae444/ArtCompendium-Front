@@ -50,6 +50,14 @@
     <v-row class="mt-12">
       <v-col cols="12">
         <h2 class="text-center">Contributions récentes</h2>
+
+        <v-row
+        v-for="(contrib, index) in featuredContrib"
+        :key="index"
+      >
+        <ContribCard :contrib="contrib" />
+      </v-row>
+
       </v-col>
     </v-row>
   </v-container>
@@ -72,13 +80,15 @@ export default defineComponent({
     const featuredArticles = ref([
       {
         title: "L'Impressionnisme : Une nouvelle ère artistique",
-        description: "Découvrez comment l'Impressionnisme a changé le monde de l'art.",
+        description:
+          "Découvrez comment l'Impressionnisme a changé le monde de l'art.",
         image: "https://placehold.co/400x200",
         date: "2024-10-10",
       },
       {
         title: "Les mystères de la Renaissance",
-        description: "Explorez les secrets et les chefs-d'œuvre de la Renaissance.",
+        description:
+          "Explorez les secrets et les chefs-d'œuvre de la Renaissance.",
         image: "https://placehold.co/400x200",
         date: "2024-10-11",
       },
@@ -87,6 +97,26 @@ export default defineComponent({
         description: "Une introduction à l'art abstrait pour les novices.",
         image: "https://placehold.co/400x200",
         date: "2024-10-12",
+      },
+    ]);
+    // Contrib à la une
+    const featuredContrib = ref([
+      {
+        title: "La Joconde",
+        description:
+          "Mise à jour de la date de création de la Joconde.",
+        image: "https://placehold.co/75x75",
+      },
+      {
+        title: "Article 1",
+        description:
+          "Description très complète de la contribution",
+        image: "https://placehold.co/75x75",
+      },
+      {
+        title: "Article 2",
+        description: "Description très complète de la contribution",
+        image: "https://placehold.co/75x75",
       },
     ]);
 
@@ -103,6 +133,7 @@ export default defineComponent({
       searchQuery,
       performSearch,
       featuredArticles,
+      featuredContrib,
     };
   },
 });
